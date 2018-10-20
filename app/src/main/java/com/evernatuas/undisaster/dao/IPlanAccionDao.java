@@ -1,5 +1,7 @@
 package com.evernatuas.undisaster.dao;
 
+import android.content.Context;
+
 import com.evernatuas.undisaster.dto.PlanAccion;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public interface IPlanAccionDao {
      * @param planAccion the plan accion
      * @return the plan accion
      */
-    PlanAccion add(PlanAccion planAccion);
+    PlanAccion add(Context context, PlanAccion planAccion);
 
     /**
      * Getting single Element
@@ -22,7 +24,7 @@ public interface IPlanAccionDao {
      * @param id the id
      * @return plan accion
      */
-    PlanAccion get(Long id);
+    PlanAccion get(Context context, Long id);
 
 
     /**
@@ -30,7 +32,7 @@ public interface IPlanAccionDao {
      *
      * @return the all
      */
-    List<PlanAccion> getAll();
+    List<PlanAccion> getAll(Context context);
 
     /**
      * Updating Element
@@ -38,12 +40,12 @@ public interface IPlanAccionDao {
      * @param plan
      * @return
      */
-    int update(PlanAccion plan);
+    int update(Context context, PlanAccion plan);
 
     /**
      * Deleting Element
      *
      * @param plan
      */
-    void remove(PlanAccion plan);
+    void remove(Context context, PlanAccion plan);
 }

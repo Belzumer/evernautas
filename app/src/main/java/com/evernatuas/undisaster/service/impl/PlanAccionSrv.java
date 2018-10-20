@@ -24,8 +24,8 @@ public class PlanAccionSrv implements IPlanAccionSrv {
      * @return
      */
     @Override
-    public PlanAccion add(PlanAccion planAccion) {
-        return dao.add(planAccion);
+    public PlanAccion add(Context context, PlanAccion planAccion) {
+        return dao.add(context, planAccion);
     }
 
     /**
@@ -35,8 +35,8 @@ public class PlanAccionSrv implements IPlanAccionSrv {
      * @return
      */
     @Override
-    public PlanAccion get(Long id) {
-        return dao.get(id);
+    public PlanAccion get(Context context, Long id) {
+        return dao.get(context, id);
     }
 
     /**
@@ -45,8 +45,8 @@ public class PlanAccionSrv implements IPlanAccionSrv {
      * @return
      */
     @Override
-    public List<PlanAccion> getAll() {
-        return dao.getAll();
+    public List<PlanAccion> getAll(Context context) {
+        return dao.getAll(context);
     }
 
     /**
@@ -56,8 +56,8 @@ public class PlanAccionSrv implements IPlanAccionSrv {
      * @return
      */
     @Override
-    public int update(PlanAccion plan) {
-        return dao.update(plan);
+    public int update(Context context, PlanAccion plan) {
+        return dao.update(context, plan);
     }
 
     /**
@@ -66,7 +66,7 @@ public class PlanAccionSrv implements IPlanAccionSrv {
      * @param plan
      */
     @Override
-    public void remove(PlanAccion plan) {
-        dao.remove(plan);
+    public void remove(Context context, PlanAccion plan) {
+        dao.remove(context, plan);
     }
 }

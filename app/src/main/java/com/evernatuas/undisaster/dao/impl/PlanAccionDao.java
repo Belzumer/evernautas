@@ -63,7 +63,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @return
      */
     @Override
-    public PlanAccion add(PlanAccion planAccion) {
+    public PlanAccion add(Context context, PlanAccion planAccion) {
         ContentValues values = new ContentValues();
         values.put(TablaPlanAccion.COLUMN_DESCRIPTION, planAccion.getDescripcion());
         values.put(TablaPlanAccion.COLUMN_POSITION, planAccion.getPosicion());
@@ -82,7 +82,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @return
      */
     @Override
-    public PlanAccion get(Long id) {
+    public PlanAccion get(Context context, Long id) {
 
         Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns, TablaPlanAccion.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
@@ -91,9 +91,10 @@ public class PlanAccionDao implements IPlanAccionDao {
         if (cursor != null) {
             cursor.moveToFirst();
             plan = new PlanAccion(Long.parseLong(cursor.getString(0)),
-                    cursor.getInt(1),
-                    cursor.getString(2),
-                    cursor.getString(3));
+                    cursor.getLong(1),
+                    cursor.getInt(2),
+                    cursor.getString(3),
+                    cursor.getString(4));
         }
         // return Element
         return plan;
@@ -103,7 +104,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @return
      */
     @Override
-    public List<PlanAccion> getAll() {
+    public List<PlanAccion> getAll(Context context) {
         Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns,
                 null, null, null, null, null);
 
@@ -111,6 +112,7 @@ public class PlanAccionDao implements IPlanAccionDao {
         if (cursor.getCount() > 0) {
             while (cursor.moveToNext()) {
                 PlanAccion elemento = new PlanAccion();
+                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
                 elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
                 elemento.setDescripcion(cursor.getString(cursor.getColumnIndex(TablaPlanAccion.COLUMN_DESCRIPTION)));
                 elemento.setPosicion(cursor.getInt(cursor.getColumnIndex(TablaPlanAccion.COLUMN_POSITION)));
@@ -129,7 +131,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @return
      */
     @Override
-    public int update(PlanAccion plan) {
+    public int update(Context context, PlanAccion plan) {
         ContentValues values = new ContentValues();
         values.put(TablaPlanAccion.COLUMN_TITLE, plan.getTitulo());
         values.put(TablaPlanAccion.COLUMN_POSITION, plan.getPosicion());
@@ -146,7 +148,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @param plan
      */
     @Override
-    public void remove(PlanAccion plan) {
+    public void remove(Context context, PlanAccion plan) {
         database.delete(TablaPlanAccion.TABLE,
                 TablaPlanAccion.COLUMN_ID + "=" + plan.getId(), null);
     }

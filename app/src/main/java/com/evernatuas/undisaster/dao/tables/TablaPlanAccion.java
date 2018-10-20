@@ -8,6 +8,7 @@ public class TablaPlanAccion extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "planAccion";
     public static final String COLUMN_ID = "id";
+    public static final String COLUMN_ID_PLAN = "id_plan";
     public static final String COLUMN_POSITION = "posicion";
     public static final String COLUMN_TITLE = "titulo";
     public static final String COLUMN_DESCRIPTION = "descripcion";
@@ -22,6 +23,7 @@ public class TablaPlanAccion extends SQLiteOpenHelper {
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_ID_PLAN + " NUMERIC, " +
                     COLUMN_POSITION + " NUMERIC, " +
                     COLUMN_TITLE + " TEXT, " +
                     COLUMN_DESCRIPTION + " TEXT " +
@@ -42,7 +44,7 @@ public class TablaPlanAccion extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TablaPlanAccion.TABLE);
+        db.execSQL(Tabla.DROP_TABLE_IF_EXISTS + TablaPlanAccion.TABLE);
         db.execSQL(TablaPlanAccion.TABLE_CREATE);
     }
     //endregion
