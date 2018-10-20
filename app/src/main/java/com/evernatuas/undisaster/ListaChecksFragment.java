@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.evernatuas.undisaster.dto.Check;
+import com.evernatuas.undisaster.service.IChecksSrv;
+import com.evernatuas.undisaster.service.impl.ChecksSrv;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,8 @@ public class ListaChecksFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private IChecksSrv checksSrv = new ChecksSrv(this.getContext());
 
     private List<Check> checks;
 
@@ -77,13 +81,7 @@ public class ListaChecksFragment extends Fragment {
 
          //TODO: DESCOMENTAR CUANDO TENGAMOS EL ARRAY
 
-        checks = new ArrayList<>();
-        Check check = new Check(1L,"Pillar agua",true);
-        checks.add(check);
-        Check check2 = new Check(2L,"Pillar papeo",false);
-        checks.add(check2);
-        Check check3 = new Check(3L,"Pillar Monster",true);
-        checks.add(check3);
+        checks = checksSrv.getAll(this.getContext());
 
 
         return inflater.inflate(R.layout.fragment_lista_checks, container, false);
@@ -93,7 +91,7 @@ public class ListaChecksFragment extends Fragment {
     public void onResume(){
         super.onResume();
         RecyclerView rv = (RecyclerView)this.getView().findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
+        //rv.setHasFixedSize(true);
         RVCheckbox adapter = new RVCheckbox(checks);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setAdapter(adapter);

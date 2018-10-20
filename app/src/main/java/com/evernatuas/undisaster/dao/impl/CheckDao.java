@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.evernatuas.undisaster.bo.Item;
 import com.evernatuas.undisaster.dao.ICheckDao;
 import com.evernatuas.undisaster.dao.tables.TablaCheck;
 import com.evernatuas.undisaster.dto.Check;
@@ -92,9 +93,9 @@ public class CheckDao implements ICheckDao {
 
         if (cursor != null) {
             cursor.moveToFirst();
-            plan = new Check(Long.parseLong(cursor.getString(0)),
+            plan = new Check(Long.parseLong(cursor.getString(0)),Long.parseLong(cursor.getString(1)),
                     cursor.getString(1),
-                    cursor.getInt(2) == 1 ? Boolean.TRUE : Boolean.FALSE);
+                    cursor.getInt(2) == 1 ? Boolean.TRUE : Boolean.FALSE,new Item());
         }
         close();
         // return Element

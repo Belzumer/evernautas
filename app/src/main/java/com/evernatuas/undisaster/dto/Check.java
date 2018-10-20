@@ -16,10 +16,13 @@ public class Check {
 
     public Check() {
     }
-    public Check(Long id, String titulo, Boolean snMarcado) {
+
+    public Check(Long id, Long idChecklist, String titulo, Boolean snMarcado, Item item) {
         this.id = id;
+        this.idCheckList = idChecklist;
         this.snMarcado = snMarcado;
         this.titulo = titulo;
+        this.item = item;
     }
 
     public ContentValues toContentValues() {

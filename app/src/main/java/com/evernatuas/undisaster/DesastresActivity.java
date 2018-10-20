@@ -24,14 +24,13 @@ public class DesastresActivity extends AppCompatActivity implements Caracteristi
             FragmentTransaction transaction = manager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     transaction.replace(R.id.contenedorFragmentos, new CaracteristicasDesastreFragment()).commit();
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_checklist:
                     transaction.replace(R.id.contenedorFragmentos, new ListaChecksFragment()).commit();
 
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_plan:
                     transaction.replace(R.id.contenedorFragmentos, new PlanesFragment()).commit();
 
                     return true;
@@ -45,9 +44,12 @@ public class DesastresActivity extends AppCompatActivity implements Caracteristi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desastres);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.contenedorFragmentos, new CaracteristicasDesastreFragment()).commit();
     }
 
     @Override

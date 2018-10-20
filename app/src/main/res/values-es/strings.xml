@@ -5,11 +5,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notificaciones</string>
+    <string name="title_plan">Planes</string>
+    <string name="title_checklist">Checklists</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
     <string name="hello_planes">Hola Planes fragmento</string>
-    <string name="title_activity_main">Menu</string>
+    <string name="title_activity_main">UnDisaster</string>
 
     <!-- DISASTER TYPES-->
     <string name="disaster_fire">Incendio</string>

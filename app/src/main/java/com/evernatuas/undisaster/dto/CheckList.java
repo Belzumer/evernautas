@@ -1,5 +1,9 @@
 package com.evernatuas.undisaster.dto;
 
+import android.content.ContentValues;
+
+import com.evernatuas.undisaster.dao.tables.TablaChecklist;
+
 import java.util.Objects;
 
 public class CheckList {
@@ -13,6 +17,14 @@ public class CheckList {
         this.id = id;
         this.idDesastre = idDesastre;
         this.titulo = titulo;
+    }
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        values.put(TablaChecklist.COLUMN_ID, id);
+        values.put(TablaChecklist.COLUMN_ID_DESASTRE, idDesastre);
+        values.put(TablaChecklist.COLUMN_TITLE, titulo);
+        return values;
     }
 
     public Long getId() {
