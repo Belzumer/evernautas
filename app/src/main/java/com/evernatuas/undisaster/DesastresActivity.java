@@ -1,5 +1,6 @@
 package com.evernatuas.undisaster;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,7 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class DesastresActivity extends AppCompatActivity {
+public class DesastresActivity extends AppCompatActivity implements CaracteristicasDesastreFragment.OnFragmentInteractionListener,
+        PlanesFragment.OnFragmentInteractionListener, ListaChecksFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
 
@@ -47,5 +49,11 @@ public class DesastresActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
 
 }

@@ -8,6 +8,8 @@ public class PlanAccion {
     private String titulo;
     private String descripcion;
 
+    public PlanAccion() {
+    }
     public PlanAccion(Long id, Integer posicion, String titulo, String descripcion) {
         this.id = id;
         this.posicion = posicion;
