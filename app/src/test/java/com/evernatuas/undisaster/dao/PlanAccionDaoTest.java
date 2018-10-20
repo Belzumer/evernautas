@@ -1,8 +1,9 @@
-package com.evernatuas.undisaster.dao.impl;
+package com.evernatuas.undisaster.dao;
 
 import android.content.Context;
 import android.util.Log;
 
+import com.evernatuas.undisaster.dao.impl.PlanAccionDao;
 import com.evernatuas.undisaster.dto.PlanAccion;
 
 import org.junit.Before;

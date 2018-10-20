@@ -29,7 +29,7 @@ public class TablaPlanAccion extends SQLiteOpenHelper {
     //endregion
 
     //region OPERACIONES
-    public static final String LOGTAG = "EMP_MNGMNT_SYS";
+    SQLiteDatabase database;
 
     public TablaPlanAccion(Context context) {
         super(context, Tabla.DATABASE_NAME, null, Tabla.DATABASE_VERSION);

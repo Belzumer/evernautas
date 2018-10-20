@@ -14,12 +14,10 @@ import com.evernatuas.undisaster.dto.PlanAccion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlanAccionDao extends TablaPlanAccion implements IPlanAccionDao {
+public class PlanAccionDao implements IPlanAccionDao {
 
 
     //region OPERACIONES
-    public static final String LOGTAG = "EMP_MNGMNT_SYS";
-
     SQLiteOpenHelper dbhandler;
     SQLiteDatabase database;
 
@@ -28,14 +26,12 @@ public class PlanAccionDao extends TablaPlanAccion implements IPlanAccionDao {
     }
 
     public void open() {
-        Log.i(LOGTAG, "Database Opened");
+        Log.i(PlanAccion.class.getName(), "Database Opened");
         database = dbhandler.getWritableDatabase();
-
-
     }
 
     public void close() {
-        Log.i(LOGTAG, "Database Closed");
+        Log.i(PlanAccion.class.getName(), "Database Closed");
         dbhandler.close();
 
     }
@@ -52,18 +48,20 @@ public class PlanAccionDao extends TablaPlanAccion implements IPlanAccionDao {
 
     }
 
-    // Getting single Employee
+    // Getting single Element
     public PlanAccion get(Long id) {
 
-        Cursor cursor = database.query(TablaPlanAccion.TABLE, allColumns, TablaPlanAccion.COLUMN_ID + "=?",
+        Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns, TablaPlanAccion.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
+        PlanAccion plan = null;
 
-        PlanAccion plan = new PlanAccion(Long.parseLong(cursor.getString(0)),
-                cursor.getInt(1),
-                cursor.getString(2),
-                cursor.getString(3));
+        if (cursor != null) {
+            cursor.moveToFirst();
+            plan = new PlanAccion(Long.parseLong(cursor.getString(0)),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getString(3));
+        }
         // return Element
         return plan;
     }
@@ -72,7 +70,7 @@ public class PlanAccionDao extends TablaPlanAccion implements IPlanAccionDao {
      * @return
      */
     public List<PlanAccion> getAll() {
-        Cursor cursor = database.query(TablaPlanAccion.TABLE, allColumns,
+        Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns,
                 null, null, null, null, null);
 
         List<PlanAccion> elementos = new ArrayList<>();
