@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.evernatuas.undisaster.dto.CheckList;
 import com.evernatuas.undisaster.dto.PlanAccion;
 
-public class TablaChecks extends SQLiteOpenHelper {
+public class TablaChecklist extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "tb_checks";
     public static final String COLUMN_ID = "id";
@@ -32,7 +32,7 @@ public class TablaChecks extends SQLiteOpenHelper {
     SQLiteDatabase database;
     Context contexto;
 
-    public TablaChecks(Context context) {
+    public TablaChecklist(Context context) {
         super(context, Tabla.DATABASE_NAME, null, Tabla.DATABASE_VERSION);
         this.contexto = context;
     }

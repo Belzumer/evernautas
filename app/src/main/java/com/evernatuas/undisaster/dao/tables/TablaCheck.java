@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.evernatuas.undisaster.bo.Item;
 import com.evernatuas.undisaster.dto.Check;
 
 public class TablaCheck extends SQLiteOpenHelper {
@@ -43,8 +44,11 @@ public class TablaCheck extends SQLiteOpenHelper {
     }
 
     private void mockData(SQLiteDatabase sqLiteDatabase) {
-        mockValues(sqLiteDatabase, new Check(1L, "carlos_perez.jpg", true));
-
+        mockValues(sqLiteDatabase, new Check(1L, 1L, "Recoger la ropa tendida", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(2L, 1L, "Atar la abuela a la silla", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(3L, 1L, "Poner comida a los perros", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(4L, 1L, "Tomar una copa de Whisky", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(5L, 1L, "Arrancar el coche", true, new Item()));
     }
 
     public long mockValues(SQLiteDatabase db, Check element) {
