@@ -93,7 +93,7 @@ public class ListaChecksFragment extends Fragment {
     public void onResume(){
         super.onResume();
         RecyclerView rv = (RecyclerView)this.getView().findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
+        //rv.setHasFixedSize(true);
         RVCheckbox adapter = new RVCheckbox(checks);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setAdapter(adapter);
