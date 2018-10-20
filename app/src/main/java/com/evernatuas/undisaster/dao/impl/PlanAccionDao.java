@@ -55,23 +55,22 @@ public class PlanAccionDao implements IPlanAccionDao {
         dbhandler.close();
 
     }
-
     /**
      * add element
      *
-     * @param planAccion the plan accion
+     * @param elemento the plan accion
      * @return
      */
     @Override
-    public PlanAccion add(Context context, PlanAccion planAccion) {
+    public PlanAccion add(Context context, PlanAccion elemento) {
         ContentValues values = new ContentValues();
-        values.put(TablaPlanAccion.COLUMN_DESCRIPTION, planAccion.getDescripcion());
-        values.put(TablaPlanAccion.COLUMN_POSITION, planAccion.getPosicion());
-        values.put(TablaPlanAccion.COLUMN_TITLE, planAccion.getTitulo());
+        values.put(TablaPlanAccion.COLUMN_DESCRIPTION, elemento.getDescripcion());
+        values.put(TablaPlanAccion.COLUMN_POSITION, elemento.getPosicion());
+        values.put(TablaPlanAccion.COLUMN_TITLE, elemento.getTitulo());
 
         Long insertid = database.insert(TablaPlanAccion.TABLE, null, values);
-        planAccion.setId(insertid);
-        return planAccion;
+        elemento.setId(insertid);
+        return elemento;
 
     }
 

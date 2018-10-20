@@ -6,8 +6,8 @@ import android.util.Log;
 import com.evernatuas.undisaster.dao.PlanAccionDaoTest;
 import com.evernatuas.undisaster.dao.impl.PlanAccionDao;
 import com.evernatuas.undisaster.dto.PlanAccion;
-import com.evernatuas.undisaster.service.IPlanAccionSrv;
-import com.evernatuas.undisaster.service.impl.PlanAccionSrv;
+import com.evernatuas.undisaster.service.IPlanesSrv;
+import com.evernatuas.undisaster.service.impl.PlanesSrv;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 public class PlanAccionSrvTest {
 
     private PlanAccion planAccion;
-    private IPlanAccionSrv planAccionSrv;
+    private IPlanesSrv planAccionSrv;
     private Context context;
 
     private Context getTestContext() {
@@ -32,7 +32,7 @@ public class PlanAccionSrvTest {
     @Before
     public void init(Context context) {
         context = getTestContext();
-        planAccionSrv = new PlanAccionSrv(context);
+        planAccionSrv = new PlanesSrv(context);
         planAccion = new PlanAccion();
         planAccion.setId(1L);
         planAccion.setTitulo("Ejemplo");

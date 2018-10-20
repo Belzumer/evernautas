@@ -6,15 +6,15 @@ import com.evernatuas.undisaster.dto.PlanAccion;
 
 import java.util.List;
 
-public interface IPlanAccionSrv {
+public interface IPlanesSrv {
 
     /**
      * add element
      *
-     * @param planAccion the plan accion
+     * @param elemento the elemento accion
      * @return
      */
-    PlanAccion add(Context context, PlanAccion planAccion);
+    PlanAccion add(Context context, PlanAccion elemento);
 
     /**
      * Getting single Element
@@ -34,15 +34,15 @@ public interface IPlanAccionSrv {
     /**
      * Updating Element
      *
-     * @param plan
+     * @param elemento
      * @return
      */
-    int update(Context context, PlanAccion plan);
+    int update(Context context, PlanAccion elemento);
 
     /**
      * Deleting Element
      *
-     * @param plan
+     * @param elemento
      */
-    void remove(Context context, PlanAccion plan);
+    void remove(Context context, PlanAccion elemento);
 }
