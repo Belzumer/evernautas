@@ -1,18 +1,22 @@
 package com.evernatuas.undisaster.dto;
 
+import com.evernatuas.undisaster.bo.Item;
+
 import java.util.Objects;
 
 public class Check {
     private Long id;
-    private String titulo;
+    private Long idChecklist;
     private Boolean snMarcado;
-    private String masInfo;
+    private Item item;
+    private Long cantidad;
 
-    public Check(Long id, String titulo, Boolean snMarcado, String masInfo) {
+    public Check(Long id, Long idChecklist, Boolean snMarcado, Item item, Long cantidad) {
         this.id = id;
         this.snMarcado = snMarcado;
-        this.titulo = titulo;
-        this.masInfo = masInfo;
+        this.idChecklist = idChecklist;
+        this.item = item;
+        this.cantidad = cantidad;
     }
 
     public Long getId() {
@@ -23,12 +27,12 @@ public class Check {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public Long getIdChecklist() {
+        return idChecklist;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setIdChecklist(Long idChecklist) {
+        this.idChecklist = idChecklist;
     }
 
     public Boolean getSnMarcado() {
@@ -39,37 +43,45 @@ public class Check {
         this.snMarcado = snMarcado;
     }
 
-    public String getMasInfo() {
-        return masInfo;
+    public Item getItem() {
+        return item;
     }
 
-    public void setMasInfo(String masInfo) {
-        this.masInfo = masInfo;
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Long getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Long cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Check checkList = (Check) o;
-        return Objects.equals(id, checkList.id) &&
-                Objects.equals(titulo, checkList.titulo);
+        Check check = (Check) o;
+        return Objects.equals(id, check.id) &&
+                Objects.equals(idChecklist, check.idChecklist);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, titulo);
+        return Objects.hash(id, idChecklist);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Check{");
-        sb.append("id=").append(id);
-        sb.append(", titulo='").append(titulo).append('\'');
-        sb.append(", snMarcado=").append(snMarcado);
-        sb.append(", masInfo='").append(masInfo).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Check{" +
+                "id=" + id +
+                ", idChecklist=" + idChecklist +
+                ", snMarcado=" + snMarcado +
+                ", item=" + item +
+                ", cantidad=" + cantidad +
+                '}';
     }
 }
