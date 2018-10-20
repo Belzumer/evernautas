@@ -9,5 +9,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
     <string name="hello_planes">Hola Planes fragmento</string>
-    <string name="title_activity_main">Menú principal</string>
+    <string name="title_activity_main">Menu</string>
+
+    <!-- DISASTER TYPES-->
+    <string name="disaster_fire">Incendio</string>
+    <string name="disaster_earth">Terremoto</string>
+    <string name="disaster_hurricane">Huracan</string>
+    <string name="disaster_flood">Inundaciones</string>
+
+    <!-- Checklist section text-->
+    <string name="new_checklist">Nuevo Checklist</string>
+    <string name="delete_checklist">Borrar checklist</string>
+    <string name="edit_checklist">Editar checklist</string>
 </resources>
