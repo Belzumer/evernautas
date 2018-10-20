@@ -3,6 +3,8 @@ package com.evernatuas.undisaster;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -16,15 +18,20 @@ public class DesastresActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    setContentView(R.layout.fragment_caracteristicas_desastre);
+
+                    transaction.replace(R.id.contenedorFragmentos, new CaracteristicasDesastreFragment()).commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    setContentView(R.layout.fragment_planes);
+                    transaction.replace(R.id.contenedorFragmentos, new ListaChecksFragment()).commit();
+
                     return true;
                 case R.id.navigation_notifications:
-                    setContentView(R.layout.fragment_lista_checks);
+                    transaction.replace(R.id.contenedorFragmentos, new PlanesFragment()).commit();
+
                     return true;
             }
             return false;
@@ -34,7 +41,7 @@ public class DesastresActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_caracteristicas_desastre);
+        setContentView(R.layout.activity_desastres);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
