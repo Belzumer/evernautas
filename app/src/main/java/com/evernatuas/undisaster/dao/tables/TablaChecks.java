@@ -6,29 +6,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.evernatuas.undisaster.dto.PlanAccion;
 
-public class TablaPlanAccion extends SQLiteOpenHelper {
+public class TablaChecks extends SQLiteOpenHelper {
     // region DDL
-    public static final String TABLE = "tb_planAccion";
+    public static final String TABLE = "tb_checks";
     public static final String COLUMN_ID = "id";
-    public static final String COLUMN_ID_PLAN = "id_plan";
-    public static final String COLUMN_POSITION = "posicion";
+    public static final String COLUMN_ID_DESASTRE = "id_desastre";
     public static final String COLUMN_TITLE = "titulo";
-    public static final String COLUMN_DESCRIPTION = "descripcion";
 
     public static final String[] allColumns = {
             COLUMN_ID,
-            COLUMN_POSITION,
             COLUMN_TITLE,
-            COLUMN_DESCRIPTION
+            COLUMN_ID_DESASTRE
     };
 
     public static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_ID_PLAN + " NUMERIC, " +
-                    COLUMN_POSITION + " NUMERIC, " +
-                    COLUMN_TITLE + " TEXT, " +
-                    COLUMN_DESCRIPTION + " TEXT " +
+                    COLUMN_ID_DESASTRE + " NUMERIC, " +
+                    COLUMN_TITLE + " TEXT " +
                     ")";
     //endregion
 
@@ -36,7 +31,7 @@ public class TablaPlanAccion extends SQLiteOpenHelper {
     SQLiteDatabase database;
     Context contexto;
 
-    public TablaPlanAccion(Context context) {
+    public TablaChecks(Context context) {
         super(context, Tabla.DATABASE_NAME, null, Tabla.DATABASE_VERSION);
         this.contexto = context;
     }

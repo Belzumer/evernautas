@@ -9,7 +9,7 @@ import com.evernatuas.undisaster.dto.PlanAccion;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlanAccionDaoTest {//extends ApplicationTestCase<Application>{
+public class PlanAccionDaoTest {
 
     private PlanAccion planAccion;
     private IPlanAccionDao dao;
@@ -17,8 +17,7 @@ public class PlanAccionDaoTest {//extends ApplicationTestCase<Application>{
 
     @Before
     public void setUp() {
-//Activity.
-        //       context = this.getApplicationContext();
+
         dao = new PlanAccionDao(context);
         planAccion = new PlanAccion();
         planAccion.setId(1L);

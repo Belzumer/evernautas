@@ -1,5 +1,9 @@
 package com.evernatuas.undisaster.dto;
 
+import android.content.ContentValues;
+
+import com.evernatuas.undisaster.dao.tables.TablaPlanesAccion;
+
 import java.util.Objects;
 
 public class PlanListAccion {
@@ -7,10 +11,20 @@ public class PlanListAccion {
     private Long idDesastre;
     private String titulo;
 
+    public PlanListAccion() {
+    }
     public PlanListAccion(Long id, Long idDesastre, String titulo) {
         this.id = id;
         this.idDesastre = idDesastre;
         this.titulo = titulo;
+    }
+
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        values.put(TablaPlanesAccion.COLUMN_ID, id);
+        values.put(TablaPlanesAccion.COLUMN_ID_DESASTRE, idDesastre);
+        values.put(TablaPlanesAccion.COLUMN_TITLE, titulo);
+        return values;
     }
 
     public Long getId() {

@@ -7,6 +7,8 @@ public class CheckList {
     private Long idDesastre;
     private String titulo;
 
+    public CheckList() {
+    }
     public CheckList(Long id, Long idDesastre, String titulo) {
         this.id = id;
         this.idDesastre = idDesastre;
