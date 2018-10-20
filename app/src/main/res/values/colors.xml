@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="rainyday1">#abc994</color>
+    <color name="rainyday2">#ccf4e7</color>
+    <color name="rainyday3">#8af2d5</color>
+    <color name="rainyday4">#637ddb</color>
+    <color name="rainyday5">#277c9c</color>
 </resources>

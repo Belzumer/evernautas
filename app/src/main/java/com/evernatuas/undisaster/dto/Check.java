@@ -1,5 +1,7 @@
 package com.evernatuas.undisaster.dto;
 
+import com.evernatuas.undisaster.bo.Item;
+
 import java.util.Objects;
 
 public class Check {

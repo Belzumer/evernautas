@@ -27,11 +27,11 @@ public class DesastresActivity extends AppCompatActivity implements Caracteristi
 
                     transaction.replace(R.id.contenedorFragmentos, new CaracteristicasDesastreFragment()).commit();
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_checklist:
                     transaction.replace(R.id.contenedorFragmentos, new ListaChecksFragment()).commit();
 
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_plan:
                     transaction.replace(R.id.contenedorFragmentos, new PlanesFragment()).commit();
 
                     return true;

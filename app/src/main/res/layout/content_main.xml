@@ -1,56 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/rainyday2"
+    android:orientation="vertical"
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="348dp"
+        android:layout_width="match_parent"
         android:layout_height="103dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/wildfire_menu"
         android:onClick="irADesastres"
-        android:text="Incendio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:text="@string/disaster_fire"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="347dp"
+        android:layout_width="match_parent"
         android:layout_height="98dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/tsunami_menu"
+        android:onClick="irADesastres"
         android:text="TSUNAMI"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="347dp"
-        android:layout_height="33dp"
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="99dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:autoText="false"
-        android:text="TIPOS DE DESASTRES"
+        android:background="@drawable/hurricane_menu"
+        android:onClick="irADesastres"
+        android:text="@string/disaster_hurricane"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-</android.support.constraint.ConstraintLayout>
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+</LinearLayout>
