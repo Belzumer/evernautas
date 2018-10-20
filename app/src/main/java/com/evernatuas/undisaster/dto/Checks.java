@@ -7,7 +7,7 @@ public class Checks {
     private Long idDesastre;
     private String titulo;
 
-    public Checks(Long id, Long idDesastre, String titulo, String descripcion) {
+    public Checks(Long id, Long idDesastre, String titulo) {
         this.id = id;
         this.idDesastre = idDesastre;
         this.titulo = titulo;
