@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.evernatuas.undisaster.dto.Check;
 import com.evernatuas.undisaster.service.IChecksSrv;
+import com.evernatuas.undisaster.service.impl.ChecksSrv;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ public class ListaChecksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private IChecksSrv iChecksSrv;
+    private IChecksSrv checksSrv = new ChecksSrv(this.getContext());
 
     private List<Check> checks;
 
@@ -80,7 +81,7 @@ public class ListaChecksFragment extends Fragment {
 
          //TODO: DESCOMENTAR CUANDO TENGAMOS EL ARRAY
 
-        checks = iChecksSrv.getAll(this.getContext());
+        checks = checksSrv.getAll(this.getContext());
 
 
         return inflater.inflate(R.layout.fragment_lista_checks, container, false);
