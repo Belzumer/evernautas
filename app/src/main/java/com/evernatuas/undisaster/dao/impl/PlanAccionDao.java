@@ -14,28 +14,55 @@ import com.evernatuas.undisaster.dto.PlanAccion;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Plan accion dao.
+ */
 public class PlanAccionDao implements IPlanAccionDao {
 
 
-    //region OPERACIONES
+    /**
+     * The Dbhandler.
+     */
+//region OPERACIONES
     SQLiteOpenHelper dbhandler;
+    /**
+     * The Database.
+     */
     SQLiteDatabase database;
 
+    /**
+     * Instantiates a new Plan accion dao.
+     *
+     * @param context the context
+     */
     public PlanAccionDao(Context context) {
         dbhandler = new TablaPlanAccion(context);
     }
 
+    /**
+     * Open.
+     */
     public void open() {
         Log.i(PlanAccion.class.getName(), "Database Opened");
         database = dbhandler.getWritableDatabase();
     }
 
+    /**
+     * Close.
+     */
     public void close() {
         Log.i(PlanAccion.class.getName(), "Database Closed");
         dbhandler.close();
 
     }
 
+    /**
+     * add element
+     *
+     * @param planAccion the plan accion
+     * @return
+     */
+    @Override
     public PlanAccion add(PlanAccion planAccion) {
         ContentValues values = new ContentValues();
         values.put(TablaPlanAccion.COLUMN_DESCRIPTION, planAccion.getDescripcion());
@@ -48,7 +75,13 @@ public class PlanAccionDao implements IPlanAccionDao {
 
     }
 
-    // Getting single Element
+    /**
+     * Getting single Element
+     *
+     * @param id the id
+     * @return
+     */
+    @Override
     public PlanAccion get(Long id) {
 
         Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns, TablaPlanAccion.COLUMN_ID + "=?",
@@ -69,6 +102,7 @@ public class PlanAccionDao implements IPlanAccionDao {
     /**
      * @return
      */
+    @Override
     public List<PlanAccion> getAll() {
         Cursor cursor = database.query(TablaPlanAccion.TABLE, TablaPlanAccion.allColumns,
                 null, null, null, null, null);
@@ -94,8 +128,8 @@ public class PlanAccionDao implements IPlanAccionDao {
      * @param plan
      * @return
      */
+    @Override
     public int update(PlanAccion plan) {
-
         ContentValues values = new ContentValues();
         values.put(TablaPlanAccion.COLUMN_TITLE, plan.getTitulo());
         values.put(TablaPlanAccion.COLUMN_POSITION, plan.getPosicion());
@@ -111,6 +145,7 @@ public class PlanAccionDao implements IPlanAccionDao {
      *
      * @param plan
      */
+    @Override
     public void remove(PlanAccion plan) {
         database.delete(TablaPlanAccion.TABLE,
                 TablaPlanAccion.COLUMN_ID + "=" + plan.getId(), null);

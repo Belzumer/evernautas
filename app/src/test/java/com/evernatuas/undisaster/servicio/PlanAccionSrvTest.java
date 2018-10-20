@@ -1,22 +1,24 @@
-package com.evernatuas.undisaster.dao;
+package com.evernatuas.undisaster.servicio;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.evernatuas.undisaster.dao.impl.PlanAccionDao;
 import com.evernatuas.undisaster.dto.PlanAccion;
+import com.evernatuas.undisaster.service.IPlanAccionSrv;
+import com.evernatuas.undisaster.service.impl.PlanAccionSrv;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlanAccionDaoTest {
+public class PlanAccionSrvTest {
 
     private PlanAccion planAccion;
-    private IPlanAccionDao dao;
+    private IPlanAccionSrv planAccionSrv;
 
     @Before
     public void init(Context context) {
-        dao = new PlanAccionDao(context);
+        planAccionSrv = new PlanAccionSrv(context);
         planAccion = new PlanAccion();
         planAccion.setId(1L);
         planAccion.setTitulo("Ejemplo");
@@ -27,26 +29,26 @@ public class PlanAccionDaoTest {
 
     @Test
     public void add() {
-        Log.d(PlanAccionDao.class.getName(), dao.add(planAccion).toString());
+        Log.d(PlanAccionDao.class.getName(), planAccionSrv.add(planAccion).toString());
     }
 
     @Test
     public void get() {
-        Log.d(PlanAccionDao.class.getName(), dao.get(1L).toString());
+        Log.d(PlanAccionDao.class.getName(), planAccionSrv.get(1L).toString());
     }
 
     @Test
     public void getAll() {
-        Log.d(PlanAccionDao.class.getName(), dao.getAll().toString());
+        Log.d(PlanAccionDao.class.getName(), planAccionSrv.getAll().toString());
     }
 
     @Test
     public void update() {
-        dao.update(planAccion);
+        planAccionSrv.update(planAccion);
     }
 
     @Test
     public void remove() {
-        dao.remove(planAccion);
+        planAccionSrv.remove(planAccion);
     }
 }
