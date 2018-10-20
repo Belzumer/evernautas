@@ -68,8 +68,9 @@ public class CheckListDao implements ICheckListDao {
         ContentValues values = new ContentValues();
         values.put(TablaPlanesAccion.COLUMN_ID_DESASTRE, elemento.getIdDesastre());
         values.put(TablaPlanesAccion.COLUMN_TITLE, elemento.getTitulo());
-
+        open();
         Long insertid = database.insert(TablaPlanesAccion.TABLE, null, values);
+        close();
         elemento.setId(insertid);
         return elemento;
 
@@ -83,7 +84,7 @@ public class CheckListDao implements ICheckListDao {
      */
     @Override
     public CheckList get(Context context, Long id) {
-
+        open();
         Cursor cursor = database.query(TablaPlanesAccion.TABLE, TablaPlanesAccion.allColumns, TablaPlanesAccion.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         CheckList elemento = null;
@@ -94,6 +95,7 @@ public class CheckListDao implements ICheckListDao {
                     cursor.getLong(1),
                     cursor.getString(2));
         }
+        close();
         // return Element
         return elemento;
     }
@@ -103,6 +105,7 @@ public class CheckListDao implements ICheckListDao {
      */
     @Override
     public List<CheckList> getAll(Context context) {
+        open();
         Cursor cursor = database.query(TablaPlanesAccion.TABLE, TablaPlanesAccion.allColumns,
                 null, null, null, null, null);
 
@@ -116,6 +119,7 @@ public class CheckListDao implements ICheckListDao {
                 elementos.add(elemento);
             }
         }
+        close();
         // return All Elements
         return elementos;
     }
@@ -133,8 +137,11 @@ public class CheckListDao implements ICheckListDao {
         values.put(TablaPlanesAccion.COLUMN_ID_DESASTRE, elemento.getIdDesastre());
 
         // updating row
-        return database.update(TablaPlanesAccion.TABLE, values,
+        open();
+        int numRow = database.update(TablaPlanesAccion.TABLE, values,
                 TablaPlanesAccion.COLUMN_ID + "=?", new String[]{String.valueOf(elemento.getId())});
+        close();
+        return numRow;
     }
 
     /**
@@ -144,8 +151,10 @@ public class CheckListDao implements ICheckListDao {
      */
     @Override
     public void remove(Context context, CheckList elemento) {
+        open();
         database.delete(TablaPlanesAccion.TABLE,
                 TablaPlanesAccion.COLUMN_ID + "=" + elemento.getId(), null);
+        close();
     }
     //endregion
 

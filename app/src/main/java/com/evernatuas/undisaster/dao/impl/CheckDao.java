@@ -69,8 +69,9 @@ public class CheckDao implements ICheckDao {
         values.put(TablaCheck.COLUMN_MARCA, elemento.getSnMarcado());
         values.put(TablaCheck.COLUMN_ID_CHECK, elemento.getIdCheckList());
         values.put(TablaCheck.COLUMN_TITLE, elemento.getTitulo());
-
+        open();
         Long insertid = database.insert(TablaCheck.TABLE, null, values);
+        close();
         elemento.setId(insertid);
         return elemento;
 
@@ -84,7 +85,7 @@ public class CheckDao implements ICheckDao {
      */
     @Override
     public Check get(Context context, Long id) {
-
+        open();
         Cursor cursor = database.query(TablaCheck.TABLE, TablaCheck.allColumns, TablaCheck.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         Check plan = null;
@@ -95,6 +96,7 @@ public class CheckDao implements ICheckDao {
                     cursor.getString(1),
                     cursor.getInt(2) == 1 ? Boolean.TRUE : Boolean.FALSE);
         }
+        close();
         // return Element
         return plan;
     }
@@ -104,6 +106,7 @@ public class CheckDao implements ICheckDao {
      */
     @Override
     public List<Check> getAll(Context context) {
+        open();
         Cursor cursor = database.query(TablaCheck.TABLE, TablaCheck.allColumns,
                 null, null, null, null, null);
 
@@ -119,6 +122,7 @@ public class CheckDao implements ICheckDao {
                 elementos.add(elemento);
             }
         }
+        close();
         // return All Elements
         return elementos;
     }
@@ -138,8 +142,11 @@ public class CheckDao implements ICheckDao {
         values.put(TablaCheck.COLUMN_ITEM, plan.getItem().getId());
 
         // updating row
-        return database.update(TablaCheck.TABLE, values,
+        open();
+        int numRow = database.update(TablaCheck.TABLE, values,
                 TablaCheck.COLUMN_ID + "=?", new String[]{String.valueOf(plan.getId())});
+        close();
+        return numRow;
     }
 
     /**
@@ -149,8 +156,10 @@ public class CheckDao implements ICheckDao {
      */
     @Override
     public void remove(Context context, Check plan) {
+        open();
         database.delete(TablaCheck.TABLE,
                 TablaCheck.COLUMN_ID + "=" + plan.getId(), null);
+        close();
     }
     //endregion
 
