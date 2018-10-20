@@ -2,21 +2,21 @@ package com.evernatuas.undisaster.dao;
 
 import android.content.Context;
 
-import com.evernatuas.undisaster.dto.PlanAccion;
+import com.evernatuas.undisaster.dto.CheckList;
 
 import java.util.List;
 
 /**
  * The interface Plan accion dao.
  */
-public interface IPlanAccionDao {
+public interface ICheckListDao {
     /**
      * Add elemento accion.
      *
      * @param elemento the elemento accion
      * @return the elemento accion
      */
-    PlanAccion add(Context context, PlanAccion elemento);
+    CheckList add(Context context, CheckList elemento);
 
     /**
      * Getting single Element
@@ -24,7 +24,7 @@ public interface IPlanAccionDao {
      * @param id the id
      * @return elemento accion
      */
-    PlanAccion get(Context context, Long id);
+    CheckList get(Context context, Long id);
 
 
     /**
@@ -32,7 +32,7 @@ public interface IPlanAccionDao {
      *
      * @return the all
      */
-    List<PlanAccion> getAll(Context context);
+    List<CheckList> getAll(Context context);
 
     /**
      * Updating Element
@@ -40,12 +40,12 @@ public interface IPlanAccionDao {
      * @param elemento
      * @return
      */
-    int update(Context context, PlanAccion elemento);
+    int update(Context context, CheckList elemento);
 
     /**
      * Deleting Element
      *
      * @param elemento
      */
-    void remove(Context context, PlanAccion elemento);
+    void remove(Context context, CheckList elemento);
 }

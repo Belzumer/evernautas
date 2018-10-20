@@ -1,6 +1,9 @@
 package com.evernatuas.undisaster.dto;
 
+import android.content.ContentValues;
+
 import com.evernatuas.undisaster.bo.Item;
+import com.evernatuas.undisaster.dao.tables.TablaCheck;
 
 import java.util.Objects;
 
@@ -11,12 +14,23 @@ public class Check {
     private Boolean snMarcado;
     private Item item;
 
+    public Check() {
+    }
     public Check(Long id, String titulo, Boolean snMarcado) {
         this.id = id;
         this.snMarcado = snMarcado;
         this.titulo = titulo;
     }
 
+    public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        values.put(TablaCheck.COLUMN_ID, id);
+        values.put(TablaCheck.COLUMN_ID_CHECK, idCheckList);
+        values.put(TablaCheck.COLUMN_MARCA, snMarcado);
+        values.put(TablaCheck.COLUMN_TITLE, titulo);
+        values.put(TablaCheck.COLUMN_ITEM, item.getId());
+        return values;
+    }
     public Long getId() {
         return id;
     }

@@ -5,15 +5,15 @@ import android.content.Context;
 import com.evernatuas.undisaster.dao.IPlanAccionDao;
 import com.evernatuas.undisaster.dao.impl.PlanAccionDao;
 import com.evernatuas.undisaster.dto.PlanAccion;
-import com.evernatuas.undisaster.service.IPlanAccionSrv;
+import com.evernatuas.undisaster.service.IPlanesSrv;
 
 import java.util.List;
 
-public class PlanAccionSrv implements IPlanAccionSrv {
+public class PlanesSrv implements IPlanesSrv {
 
     IPlanAccionDao dao;
 
-    public PlanAccionSrv(Context context) {
+    public PlanesSrv(Context context) {
         dao = new PlanAccionDao(context);
     }
 
