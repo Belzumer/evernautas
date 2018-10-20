@@ -7,6 +7,8 @@ public class Planes {
     private Long idDesastre;
     private String titulo;
 
+    public Planes() {
+    }
     public Planes(Long id, Long idDesastre, String titulo) {
         this.id = id;
         this.idDesastre = idDesastre;

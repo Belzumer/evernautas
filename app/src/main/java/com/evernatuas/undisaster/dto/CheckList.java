@@ -8,6 +8,9 @@ public class CheckList {
     private Boolean snMarcado;
     private String masInfo;
 
+    public CheckList() {
+    }
+
     public CheckList(Long id, String titulo, Boolean snMarcado, String masInfo) {
         this.id = id;
         this.snMarcado = snMarcado;
