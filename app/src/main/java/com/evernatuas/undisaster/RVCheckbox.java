@@ -49,6 +49,7 @@ public class RVCheckbox extends RecyclerView.Adapter<RVCheckbox.CheckboxViewHold
         //cvh.boton.setText(persons.get(i).name);
         //TODO: QUE EL BOTON ELIMINE
         cvh.checkbox.setChecked(checks.get(i).getSnMarcado());
+        cvh.checkbox.setText(checks.get(i).getTitulo());
 
     }
 

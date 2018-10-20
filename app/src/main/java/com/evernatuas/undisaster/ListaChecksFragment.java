@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.evernatuas.undisaster.dto.Check;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -75,8 +76,14 @@ public class ListaChecksFragment extends Fragment {
         // Inflate the layout for this fragment
 
          //TODO: DESCOMENTAR CUANDO TENGAMOS EL ARRAY
-        Check check=new Check(1L,"Pepe",true,"Mas info");
+
+        checks = new ArrayList<>();
+        Check check = new Check(1L,"Pillar agua",true);
         checks.add(check);
+        Check check2 = new Check(2L,"Pillar papeo",false);
+        checks.add(check2);
+        Check check3 = new Check(3L,"Pillar Monster",true);
+        checks.add(check3);
 
 
         return inflater.inflate(R.layout.fragment_lista_checks, container, false);
@@ -87,9 +94,9 @@ public class ListaChecksFragment extends Fragment {
         super.onResume();
         RecyclerView rv = (RecyclerView)this.getView().findViewById(R.id.rv);
         rv.setHasFixedSize(true);
-        //RVCheckbox adapter = new RVCheckbox(checks);
-        //rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        //rv.setAdapter(adapter);
+        RVCheckbox adapter = new RVCheckbox(checks);
+        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        rv.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
