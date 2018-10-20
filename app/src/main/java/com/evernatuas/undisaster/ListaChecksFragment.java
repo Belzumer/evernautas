@@ -4,9 +4,16 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.evernatuas.undisaster.dto.Check;
+
+import java.util.List;
 
 
 /**
@@ -26,6 +33,8 @@ public class ListaChecksFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private List<Check> checks;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +73,23 @@ public class ListaChecksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+         //TODO: DESCOMENTAR CUANDO TENGAMOS EL ARRAY
+        Check check=new Check(1L,"Pepe",true,"Mas info");
+        checks.add(check);
+
+
         return inflater.inflate(R.layout.fragment_lista_checks, container, false);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        RecyclerView rv = (RecyclerView)this.getView().findViewById(R.id.rv);
+        rv.setHasFixedSize(true);
+        //RVCheckbox adapter = new RVCheckbox(checks);
+        //rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        //rv.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
