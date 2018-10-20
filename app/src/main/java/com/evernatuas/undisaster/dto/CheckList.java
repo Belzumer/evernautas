@@ -4,15 +4,13 @@ import java.util.Objects;
 
 public class CheckList {
     private Long id;
+    private Long idDesastre;
     private String titulo;
-    private Boolean snMarcado;
-    private String masInfo;
 
-    public CheckList(Long id, String titulo, Boolean snMarcado, String masInfo) {
+    public CheckList(Long id, Long idDesastre, String titulo) {
         this.id = id;
-        this.snMarcado = snMarcado;
+        this.idDesastre = idDesastre;
         this.titulo = titulo;
-        this.masInfo = masInfo;
     }
 
     public Long getId() {
@@ -23,6 +21,14 @@ public class CheckList {
         this.id = id;
     }
 
+    public Long getIdDesastre() {
+        return idDesastre;
+    }
+
+    public void setIdDesastre(Long idDesastre) {
+        this.idDesastre = idDesastre;
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -31,44 +37,27 @@ public class CheckList {
         this.titulo = titulo;
     }
 
-    public Boolean getSnMarcado() {
-        return snMarcado;
-    }
-
-    public void setSnMarcado(Boolean snMarcado) {
-        this.snMarcado = snMarcado;
-    }
-
-    public String getMasInfo() {
-        return masInfo;
-    }
-
-    public void setMasInfo(String masInfo) {
-        this.masInfo = masInfo;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CheckList checkList = (CheckList) o;
-        return Objects.equals(id, checkList.id) &&
-                Objects.equals(titulo, checkList.titulo);
+        CheckList checks = (CheckList) o;
+        return Objects.equals(id, checks.id) &&
+                Objects.equals(idDesastre, checks.idDesastre);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, titulo);
+        return Objects.hash(id, idDesastre);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("CheckList{");
         sb.append("id=").append(id);
+        sb.append(", idDesastre=").append(idDesastre);
         sb.append(", titulo='").append(titulo).append('\'');
-        sb.append(", snMarcado=").append(snMarcado);
-        sb.append(", masInfo='").append(masInfo).append('\'');
         sb.append('}');
         return sb.toString();
     }

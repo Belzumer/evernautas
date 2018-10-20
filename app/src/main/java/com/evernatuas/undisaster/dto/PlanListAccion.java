@@ -2,12 +2,12 @@ package com.evernatuas.undisaster.dto;
 
 import java.util.Objects;
 
-public class Checks {
+public class PlanListAccion {
     private Long id;
     private Long idDesastre;
     private String titulo;
 
-    public Checks(Long id, Long idDesastre, String titulo) {
+    public PlanListAccion(Long id, Long idDesastre, String titulo) {
         this.id = id;
         this.idDesastre = idDesastre;
         this.titulo = titulo;
@@ -41,9 +41,9 @@ public class Checks {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Checks checks = (Checks) o;
-        return Objects.equals(id, checks.id) &&
-                Objects.equals(idDesastre, checks.idDesastre);
+        PlanListAccion planes = (PlanListAccion) o;
+        return Objects.equals(id, planes.id) &&
+                Objects.equals(idDesastre, planes.idDesastre);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Checks {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Checks{");
+        final StringBuilder sb = new StringBuilder("PlanListAccion{");
         sb.append("id=").append(id);
         sb.append(", idDesastre=").append(idDesastre);
         sb.append(", titulo='").append(titulo).append('\'');
