@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.evernatuas.undisaster.dao.IPlanListAccionDao;
+import com.evernatuas.undisaster.dao.tables.TablaPlanAccion;
 import com.evernatuas.undisaster.dao.tables.TablaPlanesAccion;
 import com.evernatuas.undisaster.dto.PlanAccion;
 import com.evernatuas.undisaster.dto.PlanListAccion;
@@ -100,6 +101,38 @@ public class PlanListAccionDao implements IPlanListAccionDao {
         return elemento;
     }
 
+    /**
+     * @param context
+     * @param id
+     * @return
+     */
+    @Override
+    public PlanListAccion getPlan(Context context, Long id) {
+        String MY_QUERY = "SELECT * FROM tb_planesAccion a INNER JOIN tb_planAccion b ON a.id=b.id_plan WHERE a.id=?";
+        open();
+        Cursor cursor = database.rawQuery(MY_QUERY, new String[]{String.valueOf(id)});
+        PlanListAccion planList = new PlanListAccion();
+        List<PlanAccion> elementos = new ArrayList<>();
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                planList.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID)));
+                planList.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID_DESASTRE)));
+                planList.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_TITLE)));
+
+                PlanAccion elemento = new PlanAccion();
+                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
+                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
+                elemento.setDescripcion(cursor.getString(cursor.getColumnIndex(TablaPlanAccion.COLUMN_DESCRIPTION)));
+                elemento.setPosicion(cursor.getInt(cursor.getColumnIndex(TablaPlanAccion.COLUMN_POSITION)));
+                elemento.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanAccion.COLUMN_TITLE)));
+                elementos.add(elemento);
+            }
+            planList.setAcciones(elementos);
+        }
+        close();
+        // return All Elements
+        return planList;
+    }
     /**
      * @return
      */

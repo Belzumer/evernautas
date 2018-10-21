@@ -34,6 +34,15 @@ public interface ICheckDao {
      */
     List<Check> getAll(Context context);
 
+
+    /**
+     * Devuelve una lista de checks por id de checklist
+     * @param context
+     * @param id
+     * @return
+     */
+    List<Check> getAllById(Context context, Long id);
+
     /**
      * Updating Element
      *

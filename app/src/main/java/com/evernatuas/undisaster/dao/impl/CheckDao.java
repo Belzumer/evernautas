@@ -128,6 +128,32 @@ public class CheckDao implements ICheckDao {
         return elementos;
     }
 
+    @Override
+    public List<Check> getAllById(Context context, final Long id) {
+        open();
+
+        String where = "id_check = ?";
+        String[] args = {id.toString()};
+        Cursor cursor = database.query(TablaCheck.TABLE, TablaCheck.allColumns,
+                where, args, null, null, null);
+
+        List<Check> elementos = new ArrayList<>();
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+                Check elemento = new Check();
+                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaCheck.COLUMN_ID)));
+                elemento.setIdCheckList(cursor.getLong(cursor.getColumnIndex(TablaCheck.COLUMN_ID_CHECK)));
+                //elemento.set(cursor.getString(cursor.getColumnIndex(TablaCheck.COLUMN_DESCRIPTION)));
+                elemento.setSnMarcado(cursor.getInt(cursor.getColumnIndex(TablaCheck.COLUMN_MARCA)) == 1 ? Boolean.TRUE : Boolean.FALSE);
+                elemento.setTitulo(cursor.getString(cursor.getColumnIndex(TablaCheck.COLUMN_TITLE)));
+                elementos.add(elemento);
+            }
+        }
+        close();
+        // return All Elements
+        return elementos;
+    }
+
     /**
      * Updating Element
      *

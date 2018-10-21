@@ -3,10 +3,11 @@ package com.evernatuas.undisaster.service;
 import android.content.Context;
 
 import com.evernatuas.undisaster.dto.Check;
+import com.evernatuas.undisaster.dto.CheckList;
 
 import java.util.List;
 
-public interface IChecksSrv {
+public interface IChecklistSrv {
 
     /**
      * add element
@@ -14,7 +15,7 @@ public interface IChecksSrv {
      * @param elemento the elemento
      * @return
      */
-    Check add(Context context, Check elemento);
+    CheckList add(Context context, CheckList elemento);
 
     /**
      * Getting single Element
@@ -22,22 +23,14 @@ public interface IChecksSrv {
      * @param id the id
      * @return
      */
-    Check get(Context context, Long id);
+    CheckList get(Context context, Long id);
 
     /**
      * return all elements
      *
      * @return
      */
-    List<Check> getAll(Context context);
-
-    /**
-     * Devuelve una lista de checks por id de checklist
-     * @param context
-     * @param id
-     * @return
-     */
-    List<Check> getAllById(Context context, Long id);
+    List<CheckList> getAll(Context context);
 
     /**
      * Updating Element
@@ -45,12 +38,12 @@ public interface IChecksSrv {
      * @param elemento
      * @return
      */
-    int update(Context context, Check elemento);
+    int update(Context context, CheckList elemento);
 
     /**
      * Deleting Element
      *
      * @param elemento
      */
-    void remove(Context context, Check elemento);
+    void remove(Context context, CheckList elemento);
 }

@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.evernatuas.undisaster.dao.ICheckListDao;
+import com.evernatuas.undisaster.dao.tables.TablaChecklist;
 import com.evernatuas.undisaster.dao.tables.TablaPlanesAccion;
 import com.evernatuas.undisaster.dto.CheckList;
 import com.evernatuas.undisaster.dto.PlanAccion;
@@ -37,14 +38,14 @@ public class CheckListDao implements ICheckListDao {
      * @param context the context
      */
     public CheckListDao(Context context) {
-        dbhandler = new TablaPlanesAccion(context);
+        dbhandler = new TablaChecklist(context);
     }
 
     /**
      * Open.
      */
     public void open() {
-        Log.i(PlanAccion.class.getName(), "Database Opened");
+        Log.i(CheckList.class.getName(), "Database Opened");
         database = dbhandler.getWritableDatabase();
     }
 
@@ -52,7 +53,7 @@ public class CheckListDao implements ICheckListDao {
      * Close.
      */
     public void close() {
-        Log.i(PlanAccion.class.getName(), "Database Closed");
+        Log.i(CheckList.class.getName(), "Database Closed");
         dbhandler.close();
 
     }
@@ -85,7 +86,7 @@ public class CheckListDao implements ICheckListDao {
     @Override
     public CheckList get(Context context, Long id) {
         open();
-        Cursor cursor = database.query(TablaPlanesAccion.TABLE, TablaPlanesAccion.allColumns, TablaPlanesAccion.COLUMN_ID + "=?",
+        Cursor cursor = database.query(TablaChecklist.TABLE, TablaChecklist.allColumns, TablaChecklist.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         CheckList elemento = null;
 
@@ -106,16 +107,16 @@ public class CheckListDao implements ICheckListDao {
     @Override
     public List<CheckList> getAll(Context context) {
         open();
-        Cursor cursor = database.query(TablaPlanesAccion.TABLE, TablaPlanesAccion.allColumns,
+        Cursor cursor = database.query(TablaChecklist.TABLE, TablaChecklist.allColumns,
                 null, null, null, null, null);
 
         List<CheckList> elementos = new ArrayList<>();
         if (cursor.getCount() > 0) {
             while (cursor.moveToNext()) {
                 CheckList elemento = new CheckList();
-                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID)));
-                elemento.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID_DESASTRE)));
-                elemento.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_TITLE)));
+                elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaChecklist.COLUMN_ID)));
+                elemento.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaChecklist.COLUMN_ID_DESASTRE)));
+                elemento.setTitulo(cursor.getString(cursor.getColumnIndex(TablaChecklist.COLUMN_TITLE)));
                 elementos.add(elemento);
             }
         }
@@ -133,13 +134,13 @@ public class CheckListDao implements ICheckListDao {
     @Override
     public int update(Context context, CheckList elemento) {
         ContentValues values = new ContentValues();
-        values.put(TablaPlanesAccion.COLUMN_TITLE, elemento.getTitulo());
-        values.put(TablaPlanesAccion.COLUMN_ID_DESASTRE, elemento.getIdDesastre());
+        values.put(TablaChecklist.COLUMN_TITLE, elemento.getTitulo());
+        values.put(TablaChecklist.COLUMN_ID_DESASTRE, elemento.getIdDesastre());
 
         // updating row
         open();
-        int numRow = database.update(TablaPlanesAccion.TABLE, values,
-                TablaPlanesAccion.COLUMN_ID + "=?", new String[]{String.valueOf(elemento.getId())});
+        int numRow = database.update(TablaChecklist.TABLE, values,
+                TablaChecklist.COLUMN_ID + "=?", new String[]{String.valueOf(elemento.getId())});
         close();
         return numRow;
     }
@@ -152,8 +153,8 @@ public class CheckListDao implements ICheckListDao {
     @Override
     public void remove(Context context, CheckList elemento) {
         open();
-        database.delete(TablaPlanesAccion.TABLE,
-                TablaPlanesAccion.COLUMN_ID + "=" + elemento.getId(), null);
+        database.delete(TablaChecklist.TABLE,
+                TablaChecklist.COLUMN_ID + "=" + elemento.getId(), null);
         close();
     }
     //endregion
