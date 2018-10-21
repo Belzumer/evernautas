@@ -23,4 +23,17 @@
     <string name="new_checklist">Nuevo Checklist</string>
     <string name="delete_checklist">Borrar checklist</string>
     <string name="edit_checklist">Editar checklist</string>
+
+    <string-array name="listaChecks">
+        <item>Checks de mentira</item>
+        <item>Esto solo es visiual</item>
+        <item>No funciona para nada</item>
+    </string-array>
+
+    <string-array name="listaPlanes">
+        <item>Planes de mentira</item>
+        <item>Esto solo es visiual</item>
+        <item>No funciona para nada</item>
+    </string-array>
+
 </resources>

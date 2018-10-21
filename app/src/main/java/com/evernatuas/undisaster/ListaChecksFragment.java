@@ -37,7 +37,7 @@ public class ListaChecksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private IChecksSrv checksSrv = new ChecksSrv(this.getContext());
+    private IChecksSrv checksSrv;
 
     private List<Check> checks;
 
@@ -80,7 +80,7 @@ public class ListaChecksFragment extends Fragment {
         // Inflate the layout for this fragment
 
          //TODO: DESCOMENTAR CUANDO TENGAMOS EL ARRAY
-
+        checksSrv = new ChecksSrv(this.getContext());
         checks = checksSrv.getAll(this.getContext());
 
 

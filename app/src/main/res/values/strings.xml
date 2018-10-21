@@ -22,4 +22,17 @@
     <string name="new_checklist">New Checklist</string>
     <string name="delete_checklist">Delete checklist</string>
     <string name="edit_checklist">Edit checklist</string>
+
+    <string-array name="listaChecks">
+        <item>Facke Checks</item>
+        <item>This is  only visual</item>
+        <item>Is not working at all</item>
+    </string-array>
+
+    <string-array name="listaPlanes">
+        <item>Facke Plans</item>
+        <item>This is  only visual</item>
+        <item>Is not working at all</item>
+    </string-array>
+
 </resources>
