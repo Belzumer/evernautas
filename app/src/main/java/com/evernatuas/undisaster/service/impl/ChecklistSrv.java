@@ -3,28 +3,27 @@ package com.evernatuas.undisaster.service.impl;
 import android.content.Context;
 
 import com.evernatuas.undisaster.dao.ICheckDao;
+import com.evernatuas.undisaster.dao.ICheckListDao;
 import com.evernatuas.undisaster.dao.impl.CheckDao;
+import com.evernatuas.undisaster.dao.impl.CheckListDao;
 import com.evernatuas.undisaster.dto.Check;
+import com.evernatuas.undisaster.dto.CheckList;
+import com.evernatuas.undisaster.service.IChecklistSrv;
 import com.evernatuas.undisaster.service.IChecksSrv;
 
 import java.util.List;
 
-public class ChecksSrv implements IChecksSrv {
+public class ChecklistSrv implements IChecklistSrv {
 
-    ICheckDao dao;
+    ICheckListDao dao;
 
-    public ChecksSrv(Context context) {
-        dao = new CheckDao(context);
+    public ChecklistSrv(Context context) {
+        dao = new CheckListDao(context);
     }
 
-    /**
-     * add element
-     *
-     * @param elemento the elemento accion
-     * @return
-     */
+
     @Override
-    public Check add(Context context, Check elemento) {
+    public CheckList add(Context context, CheckList elemento) {
         return dao.add(context, elemento);
     }
 
@@ -35,7 +34,7 @@ public class ChecksSrv implements IChecksSrv {
      * @return
      */
     @Override
-    public Check get(Context context, Long id) {
+    public CheckList get(Context context, Long id) {
         return dao.get(context, id);
     }
 
@@ -45,19 +44,8 @@ public class ChecksSrv implements IChecksSrv {
      * @return
      */
     @Override
-    public List<Check> getAll(Context context) {
+    public List<CheckList> getAll(Context context) {
         return dao.getAll(context);
-    }
-
-    /**
-     * return all by id
-     * @param context
-     * @param id
-     * @return
-     */
-    @Override
-    public List<Check> getAllById(Context context, Long id) {
-        return dao.getAllById(context, id);
     }
 
     /**
@@ -67,7 +55,7 @@ public class ChecksSrv implements IChecksSrv {
      * @return
      */
     @Override
-    public int update(Context context, Check elemento) {
+    public int update(Context context, CheckList elemento) {
         return dao.update(context, elemento);
     }
 
@@ -77,7 +65,7 @@ public class ChecksSrv implements IChecksSrv {
      * @param elemento
      */
     @Override
-    public void remove(Context context, Check elemento) {
+    public void remove(Context context, CheckList elemento) {
         dao.remove(context, elemento);
     }
 }

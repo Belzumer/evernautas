@@ -49,6 +49,32 @@ public class TablaCheck extends SQLiteOpenHelper {
         mockValues(sqLiteDatabase, new Check(3L, 1L, "Poner comida a los perros", true, new Item()));
         mockValues(sqLiteDatabase, new Check(4L, 1L, "Tomar una copa de Whisky", true, new Item()));
         mockValues(sqLiteDatabase, new Check(5L, 1L, "Arrancar el coche", true, new Item()));
+
+        mockValues(sqLiteDatabase, new Check(1L, 2L, "Ponerse ropa seca", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(2L, 2L, "Salir al patio de la casa", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(3L, 2L, "Exponerse a la intemperie", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(4L, 2L, "Esperar unos minutos", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(5L, 2L, "Si la ropa esta mojada, llueve", true, new Item()));
+
+        mockValues(sqLiteDatabase, new Check(1L, 3L, "Recoger la ropa tendida", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(2L, 3L, "Atar la abuela a la silla", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(3L, 3L, "Poner comida a los perros", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(4L, 3L, "Tomar una copa de Whisky", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(5L, 3L, "Arrancar el coche", true, new Item()));
+
+        mockValues(sqLiteDatabase, new Check(1L, 4L, "Recoger la ropa tendida", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(2L, 4L, "Atar la abuela a la silla", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(3L, 4L, "Poner comida a los perros", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(4L, 4L, "Tomar una copa de Whisky", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(5L, 4L, "Arrancar el coche", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(6L, 4L, "Arrancar las malas hierbas", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(7L, 4L, "Arrancar el corazon del vecino", true, new Item()));
+
+        mockValues(sqLiteDatabase, new Check(1L, 5L, "Recoger la ropa tendida", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(2L, 5L, "Atar la abuela a la silla", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(3L, 5L, "Poner comida a los perros", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(4L, 5L, "Tomar una copa de Whisky", true, new Item()));
+        mockValues(sqLiteDatabase, new Check(5L, 5L, "Arrancar el coche", true, new Item()));
     }
 
     public long mockValues(SQLiteDatabase db, Check element) {
