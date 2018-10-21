@@ -123,6 +123,7 @@ public class PlanListAccionDao implements IPlanListAccionDao {
                     planList.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID)));
                     planList.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID_DESASTRE)));
                     planList.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_TITLE)));
+                    setteado = true;
                 }
                 elemento = new PlanAccion();
                 elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
