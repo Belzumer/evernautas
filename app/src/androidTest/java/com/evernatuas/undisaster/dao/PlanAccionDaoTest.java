@@ -13,26 +13,15 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Instrumented test, which will execute on an Android device.
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
 @RunWith(AndroidJUnit4.class)
 public class PlanAccionDaoTest {
+    PlanAccion planAccion;
 
-    private PlanAccion planAccion;
-    private IPlanAccionDao dao;
-    //private Context context;
-
-    /**
-     * @Before public void setUp() {
-     * context = InstrumentationRegistry.getTargetContext();
-     * dao = new PlanAccionDao(context);
-     * planAccion = new PlanAccion();
-     * planAccion.setId(1L);
-     * planAccion.setTitulo("Ejemplo");
-     * planAccion.setPosicion(1);
-     * planAccion.setDescripcion("Example");
-     * <p>
-     * }
-     * /
-     **/
     @Test
     public void useAppContext() {
         // Context of the app under test.
@@ -41,38 +30,46 @@ public class PlanAccionDaoTest {
         assertEquals("com.evernatuas.undisaster", appContext.getPackageName());
     }
 
+    private void setObject() {
+        planAccion = new PlanAccion();
+        planAccion.setId(1L);
+        planAccion.setTitulo("Ejemplo");
+        planAccion.setPosicion(1);
+        planAccion.setDescripcion("Example");
+    }
+
+    @Test
+    public void getAll() {
+        Context context = InstrumentationRegistry.getTargetContext();
+        PlanAccionDao dao = new PlanAccionDao(context);
+        Log.d(PlanAccionDao.class.getName(), dao.getAll(context).toString());
+    }
+
     @Test
     public void add() {
         Context context = InstrumentationRegistry.getTargetContext();
-        dao = new PlanAccionDao(context);
+        PlanAccionDao dao = new PlanAccionDao(context);
         Log.d(PlanAccionDao.class.getName(), dao.add(context, planAccion).toString());
     }
 
     @Test
     public void get() {
         Context context = InstrumentationRegistry.getTargetContext();
-        dao = new PlanAccionDao(context);
+        PlanAccionDao dao = new PlanAccionDao(context);
         Log.d(PlanAccionDao.class.getName(), dao.get(context, 1L).toString());
-    }
-
-    @Test
-    public void getAll() {
-        Context context = InstrumentationRegistry.getTargetContext();
-        dao = new PlanAccionDao(context);
-        Log.d(PlanAccionDao.class.getName(), dao.getAll(context).toString());
     }
 
     @Test
     public void update() {
         Context context = InstrumentationRegistry.getTargetContext();
-        dao = new PlanAccionDao(context);
+        PlanAccionDao dao = new PlanAccionDao(context);
         dao.update(context, planAccion);
     }
 
     @Test
     public void remove() {
         Context context = InstrumentationRegistry.getTargetContext();
-        dao = new PlanAccionDao(context);
+        PlanAccionDao dao = new PlanAccionDao(context);
         dao.remove(context, planAccion);
     }
 }
