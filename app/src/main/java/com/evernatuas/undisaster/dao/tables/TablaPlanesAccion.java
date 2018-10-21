@@ -9,9 +9,10 @@ import com.evernatuas.undisaster.dto.PlanListAccion;
 public class TablaPlanesAccion extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "tb_planesAccion";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_TITLE = "titulo";
-    public static final String COLUMN_ID_DESASTRE = "id_desastre";
+    public static final String PREF_COLUM = "ps_";
+    public static final String COLUMN_ID = PREF_COLUM + "id_planes";
+    public static final String COLUMN_TITLE = PREF_COLUM + "titulo";
+    public static final String COLUMN_ID_DESASTRE = PREF_COLUM + "id_desastre";
 
     public static final String[] allColumns = {
             COLUMN_ID,

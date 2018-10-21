@@ -10,11 +10,12 @@ import com.evernatuas.undisaster.dto.Check;
 public class TablaCheck extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "tb_check";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_ID_CHECK = "id_check";
-    public static final String COLUMN_MARCA = "sn_marca";
-    public static final String COLUMN_TITLE = "titulo";
-    public static final String COLUMN_ITEM = "id_item";
+    public static final String PREF_COLUM = "ck_";
+    public static final String COLUMN_ID = PREF_COLUM + "id_check";
+    public static final String COLUMN_ID_CHECK = PREF_COLUM + "id_check";
+    public static final String COLUMN_MARCA = PREF_COLUM + "sn_marca";
+    public static final String COLUMN_TITLE = PREF_COLUM + "titulo";
+    public static final String COLUMN_ITEM = PREF_COLUM + "id_item";
 
     public static final String[] allColumns = {
             COLUMN_ID,

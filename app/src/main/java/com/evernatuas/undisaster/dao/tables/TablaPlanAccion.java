@@ -9,11 +9,12 @@ import com.evernatuas.undisaster.dto.PlanAccion;
 public class TablaPlanAccion extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "tb_planAccion";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_ID_PLAN = "id_plan";
-    public static final String COLUMN_POSITION = "posicion";
-    public static final String COLUMN_TITLE = "titulo";
-    public static final String COLUMN_DESCRIPTION = "descripcion";
+    public static final String PREF_COLUM = "ps_";
+    public static final String COLUMN_ID = PREF_COLUM + "id_plan";
+    public static final String COLUMN_ID_PLAN = PREF_COLUM + "id_plan";
+    public static final String COLUMN_POSITION = PREF_COLUM + "posicion";
+    public static final String COLUMN_TITLE = PREF_COLUM + "titulo";
+    public static final String COLUMN_DESCRIPTION = PREF_COLUM + "descripcion";
 
     public static final String[] allColumns = {
             COLUMN_ID,

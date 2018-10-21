@@ -4,12 +4,14 @@ import android.content.ContentValues;
 
 import com.evernatuas.undisaster.dao.tables.TablaPlanesAccion;
 
+import java.util.List;
 import java.util.Objects;
 
 public class PlanListAccion {
     private Long id;
     private Long idDesastre;
     private String titulo;
+    private List<PlanAccion> acciones;
 
     public PlanListAccion() {
     }
@@ -49,6 +51,14 @@ public class PlanListAccion {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public List<PlanAccion> getAcciones() {
+        return acciones;
+    }
+
+    public void setAcciones(List<PlanAccion> acciones) {
+        this.acciones = acciones;
     }
 
     @Override

@@ -5,14 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.evernatuas.undisaster.dto.CheckList;
-import com.evernatuas.undisaster.dto.PlanAccion;
 
 public class TablaChecklist extends SQLiteOpenHelper {
     // region DDL
     public static final String TABLE = "tb_checks";
-    public static final String COLUMN_ID = "id";
-    public static final String COLUMN_ID_DESASTRE = "id_desastre";
-    public static final String COLUMN_TITLE = "titulo";
+    public static final String PREF_COLUM = "cs_";
+    public static final String COLUMN_ID = PREF_COLUM + "id_checkList";
+    public static final String COLUMN_ID_DESASTRE = PREF_COLUM + "id_desastre";
+    public static final String COLUMN_TITLE = PREF_COLUM + "titulo";
 
     public static final String[] allColumns = {
             COLUMN_ID,
