@@ -35,6 +35,15 @@ public interface IPlanListAccionDao {
     List<PlanListAccion> getAll(Context context);
 
     /**
+     * obtiene el plan con los pasos del plan
+     *
+     * @param context
+     * @param id
+     * @return
+     */
+    PlanListAccion getPlan(Context context, Long id);
+
+    /**
      * Updating Element
      *
      * @param elemento

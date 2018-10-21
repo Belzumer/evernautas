@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.evernatuas.undisaster.dao.impl.PlanAccionDao;
 import com.evernatuas.undisaster.dto.PlanAccion;
+import com.evernatuas.undisaster.dto.PlanListAccion;
 import com.evernatuas.undisaster.service.IPlanesSrv;
 import com.evernatuas.undisaster.service.impl.PlanesSrv;
 
@@ -18,6 +19,7 @@ import org.junit.runner.RunWith;
 public class PlanAccionSrvTest {
 
     private PlanAccion planAccion;
+    private PlanListAccion plan;
     private IPlanesSrv planAccionSrv;
     private Context context;
 
@@ -25,6 +27,10 @@ public class PlanAccionSrvTest {
     public void init(Context context) {
         context = InstrumentationRegistry.getTargetContext();
         planAccionSrv = new PlanesSrv(context);
+        plan = new PlanListAccion();
+        plan.setIdDesastre(1L);
+        plan.setId(1L);
+        plan.setTitulo("Plan 1");
         planAccion = new PlanAccion();
         planAccion.setId(1L);
         planAccion.setTitulo("Ejemplo");
