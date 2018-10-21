@@ -108,18 +108,23 @@ public class PlanListAccionDao implements IPlanListAccionDao {
      */
     @Override
     public PlanListAccion getPlan(Context context, Long id) {
-        String MY_QUERY = "SELECT * FROM tb_planesAccion a INNER JOIN tb_planAccion b ON a.id=b.id_plan WHERE a.id=?";
+        String MY_QUERY = "SELECT * FROM " + TablaPlanesAccion.TABLE + " a " +
+                "INNER JOIN " + TablaPlanAccion.TABLE + " b ON a." + TablaPlanesAccion.COLUMN_ID + "=b." + TablaPlanAccion.COLUMN_ID_PLAN
+                + " WHERE a." + TablaPlanesAccion.COLUMN_ID + "=?";
         open();
         Cursor cursor = database.rawQuery(MY_QUERY, new String[]{String.valueOf(id)});
+        boolean setteado = false;
+        PlanAccion elemento;
         PlanListAccion planList = new PlanListAccion();
         List<PlanAccion> elementos = new ArrayList<>();
         if (cursor.getCount() > 0) {
             while (cursor.moveToNext()) {
-                planList.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID)));
-                planList.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID_DESASTRE)));
-                planList.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_TITLE)));
-
-                PlanAccion elemento = new PlanAccion();
+                if (!setteado) {
+                    planList.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID)));
+                    planList.setIdDesastre(cursor.getLong(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_ID_DESASTRE)));
+                    planList.setTitulo(cursor.getString(cursor.getColumnIndex(TablaPlanesAccion.COLUMN_TITLE)));
+                }
+                elemento = new PlanAccion();
                 elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
                 elemento.setId(cursor.getLong(cursor.getColumnIndex(TablaPlanAccion.COLUMN_ID)));
                 elemento.setDescripcion(cursor.getString(cursor.getColumnIndex(TablaPlanAccion.COLUMN_DESCRIPTION)));
