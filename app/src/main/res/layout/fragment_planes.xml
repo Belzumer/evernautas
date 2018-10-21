@@ -1,67 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PlanesFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:entries="@array/listaPlanes" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="383dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:entries="@array/listaPlanes" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="1 - Levantarse de la silla"
-                android:textSize="30sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0"
-                android:padding="10dp"
-                android:text="Quizá el paso principal de este plan de actuación es precisamente levantarse de la silla en la que uno está sentado, pues si no, no podrá seguir con los siguientes pasos, que seguramente ocurran a una distancia suficiente como para no poder permanecer en esa posición." />
-        </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="TextView"
-                android:textSize="30sp" />
-
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="383dp"
                 android:layout_height="match_parent"
-                android:padding="10dp"
-                android:text="2 - Hacer el resto de cosas"
-                tools:text="El segundo y último paso sería hacer el resto de cosas que necesitas para prepararte para la catastrofe. Y con esto termina el plan de actuación, gracias por leer." />
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="1 - Levantarse de la silla"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:padding="10dp"
+                    android:text="Quizá el paso principal de este plan de actuación es precisamente levantarse de la silla en la que uno está sentado, pues si no, no podrá seguir con los siguientes pasos, que seguramente ocurran a una distancia suficiente como para no poder permanecer en esa posición." />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="383dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="2 - Hacer el resto de cosas"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="El segundo y último paso sería hacer el resto de cosas que necesitas para prepararte para la catastrofe. Y con esto termina el plan de actuación, gracias por leer." />
+            </LinearLayout>
+
         </LinearLayout>
+    </HorizontalScrollView>
 
-    </LinearLayout>
-
-</HorizontalScrollView>
+</LinearLayout>
